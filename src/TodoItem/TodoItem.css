@@ -35,14 +35,18 @@
     position: absolute;
     left: 12px;
   }
+  .Icon-check:hover{
+    color: #4caf50;
+  }
   .Icon-check--active {
     color: #4caf50;
   }
   
   .Icon-delete {
     position: absolute;
-    top: -24px;
+    top: 0;
     right: 0;
+    height: 100%;
   }
   .Icon-delete:hover {
     color: red;

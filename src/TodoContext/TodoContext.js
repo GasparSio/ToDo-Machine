@@ -66,6 +66,7 @@ function TodoProvider({ children }){
             openModal,
             setOpenModal,
             addTodo,
+            
         }}>
             { children }
         </TodoContext.Provider>

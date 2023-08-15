@@ -4,7 +4,9 @@ import './TodosEmpty.css';
 function TodosEmpty(){
 
     return(
-      <p>Create your first ToDo</p>
+      <div className='TodosEmpty-container'>
+        <span>Create your first ToDo</span>
+      </div>
     );
   }
 

@@ -6,7 +6,7 @@ function TodosLoading(){
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
+            <CircularProgress className='CircularProgress'/>
         </Box>
     )
   }

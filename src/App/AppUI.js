@@ -30,6 +30,7 @@ function AppUI(){
         {error && <TodosError/>}
 
         {(!loading && searchedTodos.length === 0) && <TodosEmpty/>}
+        {TodoSearch === '' && ''}
         {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text}//cada children debe tener una llave unica, en este caso nuestra prop text sera distinta

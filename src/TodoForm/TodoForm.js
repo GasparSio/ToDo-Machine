@@ -26,7 +26,7 @@ function TodoForm(){
             >
             <label>Write new ToDo</label>
             <textarea
-                placeholder="New toDo"
+                placeholder="New ToDo"
                 value={newTodoValue}
                 onChange={onChange}
             />
