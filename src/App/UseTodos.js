@@ -1,9 +1,8 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
 
-function TodoProvider({ children }){
+function useTodos(){
     const {
         item: todos, 
         saveItem: saveTodos,
@@ -12,7 +11,7 @@ function TodoProvider({ children }){
       } = useLocalStorage('TODOS_V1', []);//usamos el customHook y los dos parametros que retorna
       const [searchValue, setSearchValue] = React.useState('');
       const [openModal, setOpenModal] = React.useState(false);
-      console.log(`Usuarios buscan + ${searchValue}`);
+      // console.log(`Usuarios buscan + ${searchValue}`);
     
       const completedTodos = todos.filter(todo => todo.completed).length;
       const totalTodos = todos.length;
@@ -50,10 +49,9 @@ function TodoProvider({ children }){
         )
         newTodos.splice(todoIndex, 1)//el splice elimina apartir del index que le pasamos en el 1 param, la cantidad de posiciones que le pasamos en el segundo parametro.cd
         saveTodos(newTodos)
-      }
+      };
 
-    return(
-        <TodoContext.Provider value={{
+    return {
             loading, 
             error,
             completedTodos,
@@ -65,14 +63,8 @@ function TodoProvider({ children }){
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo,
-            
-        }}>
-            { children }
-        </TodoContext.Provider>
-    )
-
+            addTodo
+          };
 }
 
-
-export { TodoContext, TodoProvider };
+export { useTodos };
