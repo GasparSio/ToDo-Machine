@@ -11,6 +11,7 @@ import { TodosError } from '../TodosError/TodosError';
 import { TodosEmpty } from '../TodosEmpty/TodosEmpty';
 import { TodoModal } from '../TodoModal/TodoModal';
 import { TodoForm } from '../TodoForm/TodoForm';
+import { TodoEmptySearchResult } from '../TodoEmptySearchResult/TodoEmptySearchResult';
 
 function App() {
   const {
@@ -34,10 +35,12 @@ function App() {
       <TodoCounter 
         totalTodos={totalTodos}
         completedTodos={completedTodos}
+        loading={loading}
       />
       <TodoSearch 
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        loading={loading}
       />
     </TodoHeader>
 
@@ -46,11 +49,14 @@ function App() {
       loading={loading}
       searchedTodos={searchedTodos}
       totalTodos={totalTodos}
-      // searchText={searchValue}
+      searchText={searchValue}
       onError={() => <TodosError />}
       onLoading={() => <TodosLoading />}
       onEmptyTodos={() => <TodosEmpty />}
-      onEmptySearchResults={() => <span>No results founded for {searchValue}</span>}
+      onEmptySearchResults={() => 
+      <TodoEmptySearchResult 
+        searchValue={searchValue}
+      />}
       render={todo => (
         <TodoItem 
           key={todo.text}//cada children debe tener una llave unica, en este caso nuestra prop text sera distinta
