@@ -6,6 +6,7 @@ function useTodos(){
     const {
         item: todos, 
         saveItem: saveTodos,
+        sincronizeItem: sincronizeTodos,
         loading, 
         error,
       } = useLocalStorage('TODOS_V1', []);//usamos el customHook y los dos parametros que retorna
@@ -63,7 +64,8 @@ function useTodos(){
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo
+            addTodo,
+            sincronizeTodos,
           };
 }
 

@@ -12,6 +12,7 @@ import { TodosEmpty } from '../TodosEmpty/TodosEmpty';
 import { TodoModal } from '../TodoModal/TodoModal';
 import { TodoForm } from '../TodoForm/TodoForm';
 import { TodoEmptySearchResult } from '../TodoEmptySearchResult/TodoEmptySearchResult';
+import { ChangeAlert } from '../ChangeAlert/ChangeAlert';
 
 function App() {
   const {
@@ -27,20 +28,19 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronizeTodos,
 } = useTodos()
 
   return(
   <>
-    <TodoHeader>
+    <TodoHeader loading={loading}>
       <TodoCounter 
         totalTodos={totalTodos}
         completedTodos={completedTodos}
-        loading={loading}
       />
       <TodoSearch 
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        loading={loading}
       />
     </TodoHeader>
 
@@ -78,6 +78,9 @@ function App() {
         />
       </TodoModal>
     )}
+    <ChangeAlert 
+      sincronize={sincronizeTodos}
+    />
   </>
   )
 }
